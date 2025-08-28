@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>¿Quién Quiere Ser Matemático?</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Barra superior con logos pequeños -->
+    <header class="topbar">
+      <img
+        src="assets/logo_dev.png"
+        class="logo-mini izq"
+        alt="Logo desarrollador"
+      />
+      <img
+        src="assets/logo_colegio.png"
+        class="logo-mini der"
+        alt="Logo colegio"
+      />
+    </header>
+
+    <!-- Pantalla de inicio -->
+    <section id="pantalla-inicio" class="pantalla activa">
+      <div class="home">
+        <img
+          src="assets/logo_matematico.png"
+          class="logo-main"
+          alt="¿Quién Quiere Ser Matemático?"
+        />
+        <div class="botonera">
+          <button id="btn-jugar">Jugar</button>
+          <button id="btn-config">Configuración</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pantalla de juego -->
+    <section id="pantalla-juego" class="pantalla">
+      <div class="layout">
+        <!-- Escenario con barras generadas por CSS -->
+        <div class="stage">
+          <!-- Pregunta -->
+          <div class="bar question">
+            <div id="texto-pregunta" class="qtext">Aquí irá la pregunta</div>
+          </div>
+
+          <!-- Respuestas -->
+          <div class="answers">
+            <div class="row">
+              <button class="answer a" data-idx="0">
+                <span class="label">A:</span><span class="txt"></span>
+              </button>
+              <button class="answer b" data-idx="1">
+                <span class="label">B:</span><span class="txt"></span>
+              </button>
+              <div class="knot"></div>
+            </div>
+            <div class="row">
+              <button class="answer c" data-idx="2">
+                <span class="label">C:</span><span class="txt"></span>
+              </button>
+              <button class="answer d" data-idx="3">
+                <span class="label">D:</span><span class="txt"></span>
+              </button>
+              <div class="knot"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel lateral -->
+        <aside class="panel">
+          <div class="card">
+            <h3>Puntaje</h3>
+            <div class="puntaje"><span id="puntaje">0</span></div>
+            <div class="progreso">
+              Pregunta <span id="num-actual">1</span>/<span id="num-total"
+                >0</span
+              >
+            </div>
+            <button id="btn-salir" class="secundario">Salir</button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Pantalla de configuración -->
+    <section id="pantalla-config" class="pantalla">
+      <h2>Configuración</h2>
+      <p>(Próximamente más opciones)</p>
+      <button id="btn-volver-inicio-2" class="secundario">
+        Volver al inicio
+      </button>
+    </section>
+
+    <!-- Entrada modular -->
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>
