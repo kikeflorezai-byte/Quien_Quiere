@@ -2,12 +2,13 @@
   --bg: #0a0f1a;
   --card: #111a2b;
   --bar: #0f2244;
-  --bar-border: #4aa3ff;
-  --accent: #1ea0ff;
+  --bar-border: #ffd700; /* dorado */
+  --accent: #ffd700;
   --ok: #2ecc71;
   --error: #e74c3c;
-  --txt: #eaf2ff;
+  --txt: #fffbe6;
   --muted: #a8b3c7;
+  --shadow: 0 0 24px 4px #ffd70055;
 }
 
 * {
@@ -23,9 +24,9 @@ body {
   color: var(--txt);
   background: radial-gradient(
     1200px 600px at 50% -10%,
-    #0c1630 0%,
-    #070a12 60%,
-    #05070c 100%
+    #1a237e 0%,
+    #0d133d 60%,
+    #070a12 100%
   );
 }
 
@@ -35,7 +36,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 12px;
-  border-bottom: 1px solid #0f2546;
+  border-bottom: 2px solid var(--bar-border);
+  background: linear-gradient(90deg, #0d133d 60%, #ffd70022 100%);
+  box-shadow: var(--shadow);
 }
 .logo-mini {
   height: 36px;
@@ -47,6 +50,7 @@ body {
   height: auto;
   display: block;
   margin: 0 auto 20px;
+  filter: drop-shadow(0 0 12px #ffd70088);
 }
 
 .pantalla {
@@ -68,24 +72,28 @@ body {
   justify-content: center;
 }
 button {
-  background: var(--accent);
-  color: #031022;
+  background: linear-gradient(90deg, #ffd700 60%, #fffbe6 100%);
+  color: #0d133d;
   border: none;
-  border-radius: 10px;
-  padding: 12px 18px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.06s ease, opacity 0.2s;
+  border-radius: 999px;
+  padding: 14px 28px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px #ffd70055;
+  text-shadow: 0 1px 2px #fffbe6aa;
+  transition: transform 0.06s, box-shadow 0.2s;
 }
 button:hover {
-  transform: translateY(-1px);
+  transform: scale(1.04);
+  box-shadow: 0 0 24px #ffd70088;
 }
 button:active {
-  transform: translateY(0);
+  transform: scale(0.98);
 }
 button.secundario {
   background: #22314d;
   color: var(--txt);
+  border: 2px solid var(--bar-border);
 }
 
 .layout {
@@ -111,22 +119,28 @@ button.secundario {
 }
 
 .bar {
-  background: linear-gradient(180deg, #0f2244 0%, #0b1a34 100%);
-  border: 2px solid var(--bar-border);
+  background: linear-gradient(180deg, #1a237e 0%, #0d133d 100%);
+  border: 3px solid var(--bar-border);
   border-radius: 16px;
   padding: 16px;
   position: relative;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 32px #ffd70033, 0 2px 8px #000a;
 }
 .bar.question {
-  min-height: 90px;
+  min-height: 110px;
+  font-size: 1.5rem;
+  font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
+  color: var(--accent);
+  text-shadow: 0 2px 8px #000, 0 0 8px #ffd70066;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .qtext {
-  font-size: 1.2rem;
-  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--txt);
+  text-shadow: 0 2px 8px #000, 0 0 8px #ffd70044;
 }
 
 .answers {
@@ -152,35 +166,49 @@ button.secundario {
   align-items: center;
   gap: 10px;
   justify-content: flex-start;
-  background: linear-gradient(180deg, #11224a 0%, #0c1c38 100%);
-  border: 2px solid var(--bar-border);
+  border: 2.5px solid var(--bar-border);
+  background: linear-gradient(90deg, #0d133d 60%, #ffd70022 100%);
   color: var(--txt);
-  padding: 14px 16px;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', 'Arial Black', Arial, sans-serif;
   border-radius: 999px;
-  font-size: 1rem;
-  font-weight: 700;
+  box-shadow: 0 2px 12px #ffd70033;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.answer:hover {
+  background: linear-gradient(90deg, #ffd700 40%, #0d133d 100%);
+  color: #0d133d;
+  box-shadow: 0 0 16px #ffd70088;
 }
 .answer .label {
   color: #9bd0ff;
 }
 .answer.correcta {
   outline: 3px solid var(--ok);
+  background: linear-gradient(90deg, #ffd700 60%, #2ecc71 100%);
+  color: #0d133d;
 }
 .answer.incorrecta {
   outline: 3px solid var(--error);
+  background: linear-gradient(90deg, #ffd700 60%, #e74c3c 100%);
+  color: #0d133d;
 }
 
 .panel .card {
   background: var(--card);
-  border: 1px solid #1a2b49;
-  border-radius: 16px;
-  padding: 16px;
+  border: 2px solid var(--bar-border);
+  box-shadow: var(--shadow);
 }
+
 .puntaje {
-  font-size: 2rem;
-  font-weight: 800;
-  margin: 8px 0 14px;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 2px 8px #ffd70088;
 }
+
 .progreso {
   color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 1px;
 }
